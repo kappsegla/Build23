@@ -1,21 +1,29 @@
 package org.example.testdoubles;
 
 import org.example.testdoubles.utils.EntityManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class CustomerReaderTest {
+    CustomerReader customerReader;
+    EntityManager entityManager;
+
+    @BeforeEach
+    void setUp(){
+        entityManager = mock(EntityManager.class);
+        customerReader = new CustomerReader(entityManager);
+    }
+
 
 
     @Test
     void findFullNameWithValidIdReturnsFullNameOfCustomer() {
-
-        var entityManager = Mockito.mock(EntityManager.class);
         Customer customer = new Customer(1,"Kalle","Anka");
-        Mockito.when(entityManager.find(1L)).thenReturn(customer);
-        CustomerReader customerReader = new CustomerReader(entityManager);
+        when(entityManager.find(1L)).thenReturn(customer);
 
         String fullName = customerReader.findFullName(1L);
 
@@ -24,9 +32,7 @@ class CustomerReaderTest {
 
     @Test
     void callingFindFullNameWithInvalidIdReturnsEmptyString() {
-        EntityManager entityManager = Mockito.mock(EntityManager.class);
-        Mockito.when(entityManager.find(2L)).thenReturn(null);
-        CustomerReader customerReader = new CustomerReader(entityManager);
+        when(entityManager.find(2L)).thenReturn(null);
 
         String fullName = customerReader.findFullName(2L);
 
