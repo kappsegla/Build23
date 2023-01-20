@@ -8,7 +8,7 @@ public class RomanNumeral {
     private static final Map<Character, Integer> map;
 
     static {
-        map = new HashMap<Character, Integer>();
+        map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
         map.put('X', 10);
