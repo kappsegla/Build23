@@ -1,5 +1,7 @@
 package org.example.calculator;
 
+import java.time.LocalTime;
+
 public class Calculator {
 
     public static int test(int i, int i1) {
@@ -15,5 +17,11 @@ public class Calculator {
                 if (j == k)
                     count++;
         return count;
+    }
+
+    public static String greeting(String name, LocalTime currentTime) {
+        if( currentTime.isAfter(LocalTime.NOON))
+            return "Good afternoon " +  name;
+        return "Good morning " + name;
     }
 }
