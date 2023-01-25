@@ -1,5 +1,7 @@
 package org.example.tennis;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,16 +18,18 @@ public class Tennis {
         int player2Score = scores.get("player2");
         String scoreAsString = "";
 
-        if (player1Score == 1)
-            scoreAsString += "15";
-        else
-            scoreAsString += "love";
+        scoreAsString += getScore(player1Score);
         scoreAsString += "-";
-        if (player2Score == 1)
-            scoreAsString += "15";
-        else
-            scoreAsString += "love";
+        scoreAsString += getScore(player2Score);
         return scoreAsString;
+    }
+
+    @NotNull
+    private static String getScore(int player1Score) {
+        if (player1Score == 1)
+            return "15";
+        else
+            return "love";
     }
 
     public void incrementScore(String player) {
