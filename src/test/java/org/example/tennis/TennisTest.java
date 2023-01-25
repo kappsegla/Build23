@@ -125,6 +125,35 @@ class TennisTest {
         assertThat(tennis.isGameOver()).isFalse();
     }
 
+    @Test
+    void playCompleteRound() {
+        assertThat(tennis.readScore()).isEqualTo("love-love");
+        tennis.incrementScore("player1");
+        assertThat(tennis.readScore()).isEqualTo("15-love");
+        tennis.incrementScore("player1");
+        assertThat(tennis.readScore()).isEqualTo("30-love");
+        tennis.incrementScore("player2");
+        assertThat(tennis.readScore()).isEqualTo("30-15");
+        tennis.incrementScore("player1");
+        assertThat(tennis.readScore()).isEqualTo("40-15");
+        tennis.incrementScore("player2");
+        assertThat(tennis.readScore()).isEqualTo("40-30");
+        tennis.incrementScore("player2");
+        assertThat(tennis.readScore()).isEqualTo("deuce");
+        tennis.incrementScore("player1");
+        assertThat(tennis.readScore()).isEqualTo("advantage player1");
+        assertThat(tennis.isGameOver()).isFalse();
+        tennis.incrementScore("player2");
+        assertThat(tennis.readScore()).isEqualTo("deuce");
+        tennis.incrementScore("player2");
+        assertThat(tennis.readScore()).isEqualTo("advantage player2");
+        tennis.incrementScore("player2");
+        assertThat(tennis.isGameOver()).isTrue();
+        assertThat(tennis.readScore()).isEqualTo("winner player2");
+    }
+
+
+
     private void play40_40() {
         tennis.incrementScore("player1");
         tennis.incrementScore("player1");
@@ -133,6 +162,8 @@ class TennisTest {
         tennis.incrementScore("player2");
         tennis.incrementScore("player2");
     }
+
+
 
 
 }
