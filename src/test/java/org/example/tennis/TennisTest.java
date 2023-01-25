@@ -21,6 +21,16 @@ public class TennisTest {
         assertThat(tennis.readScore()).isEqualTo("15-love");
     }
 
+    @Test
+    void afterPlayersHasWonOneBallEachScoreShouldBe1515() {
+        Tennis tennis = new Tennis();
+
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+
+        assertThat(tennis.readScore()).isEqualTo("15-15");
+    }
+
 
 
 }
