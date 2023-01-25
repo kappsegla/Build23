@@ -26,7 +26,9 @@ public class Tennis {
 
     @NotNull
     private static String getScore(int player1Score) {
-        if (player1Score == 1)
+        if( player1Score == 2)
+            return "30";
+        else if (player1Score == 1)
             return "15";
         else
             return "love";
