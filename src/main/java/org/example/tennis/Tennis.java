@@ -26,9 +26,9 @@ public class Tennis {
 
     @NotNull
     private static String getScore(int player1Score) {
-        if( player1Score == 3)
+        if (player1Score == 3)
             return "40";
-        else if( player1Score == 2)
+        else if (player1Score == 2)
             return "30";
         else if (player1Score == 1)
             return "15";
@@ -38,5 +38,12 @@ public class Tennis {
 
     public void incrementScore(String player) {
         scores.put(player, scores.get(player) + 1);
+    }
+
+    public boolean isGameOver() {
+        if ((scores.get("player1") > 3 || scores.get("player2") > 3)
+                && Math.abs(scores.get("player1") - scores.get("player2")) > 1)
+            return true;
+        return false;
     }
 }

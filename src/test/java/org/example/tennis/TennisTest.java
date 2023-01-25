@@ -52,6 +52,37 @@ public class TennisTest {
         assertThat(tennis.readScore()).isEqualTo("40-love");
     }
 
+    @Test
+    void playerThatHasWon3BallsAndWinsAnotherShouldWinTheGame() {
+        Tennis tennis = new Tennis();
+
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+
+        assertThat(tennis.isGameOver()).isTrue();
+    }
+
+    @Test
+    void whenBothPlayerHasWon3BallsPlayer1ShouldNotWinAfterOneMoreBall() {
+        Tennis tennis = new Tennis();
+
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player1");
+
+        assertThat(tennis.isGameOver()).isFalse();
+    }
+
+
+
+
+
 
 
 }
