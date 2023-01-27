@@ -1,16 +1,24 @@
 package org.example;
 
-public class RedisBackedCache {
-    public RedisBackedCache(String localhost, int port) {
+import redis.clients.jedis.JedisPooled;
 
+public class RedisBackedCache {
+    //https://github.com/redis/jedis
+    JedisPooled pool;
+
+    public RedisBackedCache(String localhost, int port) {
+        pool = new JedisPooled(localhost, port);
     }
 
     public void put(String key, String value) {
-        //Add code to connect to database and add key value
+        pool.set(key, value);
     }
 
     public String get(String key) {
-        //Add code to connect to database and read value for key
-        return null;
+        return pool.get(key);
+    }
+
+    public void close() {
+        pool.close();
     }
 }
