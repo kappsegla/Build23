@@ -5,49 +5,28 @@ import java.util.Scanner;
 
 public class App {
 
-    private int k = 0;
-    private String name;
-
-    public int getK() {
-        return k;
-    }
-
-    public void setK(int k) {
-        if (k < 0)
-            throw new IllegalArgumentException();
-        this.k = k;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        App app = (App) o;
-        return k == app.k && Objects.equals(name, app.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(k, name);
-    }
-
     public static void main(String[] args) {
-        System.out.println("Write two numbers:");
-        Scanner scanner = new Scanner(System.in);
-        var a = scanner.nextInt();
-        var b = scanner.nextInt();
+        char operator;
+        double number1, number2;
 
-        System.out.println(add(a, b));
-    }
+        Scanner input = new Scanner(System.in);
 
-    public static int add(int a, int b) {
-        return a + b;
-    }
+        System.out.println("Choose an operator: +, -, *, or /");
+        operator = input.next().charAt(0);
 
-    public static boolean odd(int a) {
-        if (a % 2 == 1) {
-            return true;
-        } else
-            return false;
+        System.out.println("Enter first number");
+        number1 = input.nextDouble();
+
+        System.out.println("Enter second number");
+        number2 = input.nextDouble();
+
+        switch (operator) {
+            case '+' -> System.out.printf("%s + %s = %s%n", number1, number2, number1 + number2);
+            case '-' -> System.out.printf("%s - %s = %s%n", number1, number2, number1 - number2);
+            case '*' -> System.out.printf("%s * %s = %s%n", number1, number2, number1 * number2);
+            case '/' -> System.out.printf("%s / %s = %s%n", number1, number2, number1 / number2);
+            default -> System.out.println("Invalid operator!");
+        }
+        input.close();
     }
 }
