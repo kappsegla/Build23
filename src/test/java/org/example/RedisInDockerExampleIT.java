@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -16,17 +17,25 @@ public class RedisInDockerExampleIT {
     private RedisBackedCache underTest;
 
     @Container
-    public GenericContainer redis = new GenericContainer(DockerImageName.parse("redis:5.0.3-alpine"))
+    GenericContainer<?> redis =
+            new GenericContainer<>(DockerImageName.parse("redis:7-alpine"))
             .withExposedPorts(6379);
 
     @BeforeEach
     public void setUp() {
-        // Assume that we have Redis running locally?
-        underTest = new RedisBackedCache("localhost", 6379);
+        String address = redis.getHost();
+        Integer port = redis.getFirstMappedPort();
+        // Now we have an address and port for Redis, no matter where it is running
+        underTest = new RedisBackedCache(address, port);
+    }
+
+    @AfterEach
+    void tearDown() {
+        underTest.close();
     }
 
     @Test
-    @Disabled("Code is not implemented yet")
+    //@Disabled("Code is not implemented yet")
     public void testSimplePutAndGet() {
         underTest.put("test", "example");
 
