@@ -21,4 +21,11 @@ public class RedisBackedCache {
     public void close() {
         pool.close();
     }
+
+    public static void main(String[] args) {
+        var cache = new RedisBackedCache("localhost", 6379);
+        cache.put("name","martin");
+
+    }
+
 }
