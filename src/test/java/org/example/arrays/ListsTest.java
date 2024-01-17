@@ -1,6 +1,7 @@
 package org.example.arrays;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -26,5 +27,12 @@ class ListsTest {
                 .containsExactlyInAnyOrderElementsOf(expected);
     }
 
+    @Test
+    @DisplayName("Using zero as first value should not throw RuntimeException")
+    @Tag("Bug")
+    void usingZeroAsFirstValueShouldNotThrowRuntimeException() {
+        Lists lists = new Lists();
+        assertThatCode(() -> lists.removeNegativeNumbers(List.of(0))).doesNotThrowAnyException();
+    }
 
 }
