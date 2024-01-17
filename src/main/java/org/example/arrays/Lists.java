@@ -5,6 +5,8 @@ import java.util.List;
 public class Lists {
 
     List<Integer> removeNegativeNumbers(List<Integer> numbers) {
+        if( numbers.get(0).equals(0))
+            throw new RuntimeException();
         return numbers.stream().filter(n -> n >= 0).sorted().toList();
     }
 
