@@ -34,5 +34,16 @@ class ListsTest {
         Lists lists = new Lists();
         assertThatCode(() -> lists.removeNegativeNumbers(List.of(0))).doesNotThrowAnyException();
     }
+    @Test
+    @DisplayName("Only positive numbers returns same list content")
+    void onlyPositiveNumbersReturnsSameListContent() {
+        List<Integer> values = List.of(1,2,3);
+        Lists lists = new Lists();
+
+        var result = lists.removeNegativeNumbers(values);
+
+        assertThat(result).containsExactlyInAnyOrder(1,2,3);
+    }
+
 
 }
