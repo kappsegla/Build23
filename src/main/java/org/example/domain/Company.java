@@ -1,6 +1,7 @@
 package org.example.domain;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Company
 {
@@ -34,7 +35,7 @@ public class Company
      */
     public void everybodyGetsRaiseBy(double incrementAsFraction)
     {
-        this.employees.forEach(e -> e.setSalary(e.getSalary() * (incrementAsFraction)));
+        this.employees.forEach(e -> e.setSalary(e.getSalary() * (1 + incrementAsFraction)));
     }
 
     /**
@@ -44,7 +45,7 @@ public class Company
      */
     public Employee findEmployeeById(String id)
     {
-        int foundIndex = 0;
+        int foundIndex = -1;
         for (int i = 0; i < this.employees.size(); i++)
         {
             if (this.employees.get(i).getId().equals(id))
@@ -53,11 +54,13 @@ public class Company
                 break;
             }
         }
+        if( foundIndex == -1)
+            return null;
         return this.employees.get(foundIndex);
     }
 
     public int numberOfEmployees()
     {
-        return 7;
+        return employees.size();
     }
 }

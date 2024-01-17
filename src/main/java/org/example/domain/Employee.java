@@ -1,13 +1,17 @@
 package org.example.domain;
 
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 public class Employee
 {
     private String id;
     private String name;
     private double salary;
 
-    public Employee(String newId, String newName, double newSalary)
+    public Employee(String newId, @NotNull String newName, double newSalary)
     {
         this.id = newId;
         this.setName(newName);
@@ -30,7 +34,7 @@ public class Employee
      */
     public void setName(String newName)
     {
-        this.name = newName.replaceAll(" ", "");
+        this.name = newName.trim();//replaceAll(" ", "");
     }
 
     public double getSalary()
