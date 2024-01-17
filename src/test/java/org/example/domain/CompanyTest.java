@@ -50,8 +50,8 @@ public class CompanyTest {
 
     @Test
     public void oneEmployeeAdded() {
-
         this.company.addEmployee(new Employee("123", "Dave", 100_000.00));
+
         assertEquals(1, this.company.numberOfEmployees());
     }
 

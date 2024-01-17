@@ -5,7 +5,7 @@ import java.util.List;
 public class Lists {
 
     List<Integer> removeNegativeNumbers(List<Integer> numbers) {
-        return numbers.stream().filter(n -> n >= 0).toList();
+        return numbers.stream().filter(n -> n >= 0).sorted().toList();
     }
 
     List<Integer> multiplyOddNumbersBy2(List<Integer> numbers) {
