@@ -1,7 +1,15 @@
 package org.example.tdd;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class TennisGameTest {
+
+    @Test
+    void first() {
+    TennisGame tennisGame = new TennisGame();
+    assertThat(tennisGame.getScore()).isEqualTo("Love-All");
+    }
 
 }
