@@ -41,4 +41,10 @@ public class FizzBuzzTest {
         assertThat(FizzBuzz.convert(5)).isEqualTo("Buzz");
     }
 
+    @Test
+    @DisplayName("Given 15 return FizzBuzz")
+    void given15ReturnFizzBuzz() {
+        assertThat(FizzBuzz.convert(15)).isEqualTo("FizzBuzz");
+    }
+
 }
