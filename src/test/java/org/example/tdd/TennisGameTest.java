@@ -6,10 +6,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TennisGameTest {
 
-    @Test
-    void first() {
     TennisGame tennisGame = new TennisGame();
-    assertThat(tennisGame.getScore()).isEqualTo("Love-All");
+
+    @Test
+    void newGameShouldReturnLoveAll() {
+        assertThat(tennisGame.getScore()).isEqualTo("Love-All");
     }
+
+    @Test
+    void playerOneWinsFirstBall() {
+        tennisGame.updateFirstPlayerScore();
+        assertThat(tennisGame.getScore()).isEqualTo("15-Love");
+    }
+
 
 }
