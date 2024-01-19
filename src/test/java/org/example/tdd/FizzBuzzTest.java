@@ -17,4 +17,10 @@ public class FizzBuzzTest {
         assertThat(result).isEqualTo("0");
     }
 
+    @Test
+    @DisplayName("Given 1 then return 1")
+    void given1ThenReturn1() {
+        assertThat(FizzBuzz.convert(1)).isEqualTo("1");
+    }
+
 }
