@@ -1,0 +1,20 @@
+package org.example.tdd;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class FizzBuzzTest {
+
+    //0,1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,...,14,FizzBuzz,...
+
+    @Test
+    @DisplayName("Given 0 then return 0")
+    void given0ThenReturn0() {
+        String result = FizzBuzz.convert(0);
+
+        assertThat(result).isEqualTo("0");
+    }
+
+}
