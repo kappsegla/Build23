@@ -5,7 +5,7 @@ public class TennisGame {
     private int secondPlayerScore;
 
     public String getScore() {
-        if(firstPlayerScore == 4)
+        if(firstPlayerScore > 3 && firstPlayerScore-secondPlayerScore>=2 )
             return "Player1 won the game";
 
         if (firstPlayerScore == secondPlayerScore)
@@ -22,10 +22,11 @@ public class TennisGame {
             case 3 -> "40";
             default -> throw new IllegalStateException("Unexpected value: " + score);
         };
-
     }
 
     private String evenScore(int firstPlayerScore) {
+        if(firstPlayerScore >= 3)
+            return "Deuce";
         return translate(firstPlayerScore) + "-All";
     }
 
