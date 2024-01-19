@@ -23,4 +23,11 @@ public class FizzBuzzTest {
         assertThat(FizzBuzz.convert(1)).isEqualTo("1");
     }
 
+    @Test
+    @DisplayName("Given 3 then return Fizz")
+    void given3ThenReturnFizz() {
+        assertThat(FizzBuzz.convert(3)).isEqualTo("Fizz");
+    }
+
+
 }
