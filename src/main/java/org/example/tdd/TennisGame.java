@@ -5,6 +5,9 @@ public class TennisGame {
     private int secondPlayerScore;
 
     public String getScore() {
+        if(firstPlayerScore == 4)
+            return "Player1 won the game";
+
         if (firstPlayerScore == secondPlayerScore)
             return evenScore(firstPlayerScore);
 

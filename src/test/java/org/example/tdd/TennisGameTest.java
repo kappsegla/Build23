@@ -38,6 +38,12 @@ class TennisGameTest {
         assertThat(tennisGame.getScore()).isEqualTo("40-Love");
     }
 
+    @Test
+    void playerOneWinsGame() {
+        updateBothPlayerScoreNumberOfTimes(4,0);
+        assertThat(tennisGame.getScore()).isEqualTo("Player1 won the game");
+    }
+
     private void updateBothPlayerScoreNumberOfTimes(int firstPlayer, int secondPlayer){
         for(int i = 0; i<firstPlayer; i++){
             tennisGame.updateFirstPlayerScore();
