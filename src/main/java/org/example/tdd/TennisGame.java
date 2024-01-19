@@ -5,11 +5,25 @@ public class TennisGame {
     private int secondPlayerScore;
 
     public String getScore() {
-        if (firstPlayerScore == 1)
-            return "15-Love";
-        if (secondPlayerScore == 1)
-            return "Love-15";
-        return "Love-All";
+        if (firstPlayerScore == secondPlayerScore)
+            return evenScore(firstPlayerScore);
+
+        return translate(firstPlayerScore) + "-" + translate(secondPlayerScore);
+    }
+
+    private String translate(int score) {
+        return switch (score) {
+            case 0 -> "Love";
+            case 1 -> "15";
+            case 2 -> "30";
+            case 3 -> "40";
+            default -> throw new IllegalStateException("Unexpected value: " + score);
+        };
+
+    }
+
+    private String evenScore(int firstPlayerScore) {
+        return translate(firstPlayerScore) + "-All";
     }
 
     public void updateFirstPlayerScore() {
