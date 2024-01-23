@@ -10,10 +10,15 @@ class TDExample {
         this.authorizer = authorizer;
     }
 
-    public void DoStuff(){
+    public void doStuff(){
         var authorized = authorizer.authorize("user","P@ssw0rd");
+
         if( authorized ){
             protectedResource = "User was here!";
         }
+    }
+
+    public String getProtectedResource() {
+        return protectedResource;
     }
 }
