@@ -20,4 +20,17 @@ class CustomerReaderTest {
 
         assertThat(result).isEmpty();
     }
+
+    @Test
+    @DisplayName("Given existing customer id then return customer first and last name concatenated")
+    void givenExistingCustomerIdThenReturnCustomerFirstAndLastNameConcatenated() {
+        EntityManager entityManager = Mockito.mock(EntityManager.class);
+        CustomerReader customerReader = new CustomerReader(entityManager);
+        Customer customer = new Customer(1,"Donald","Duck");
+        Mockito.when(entityManager.find(1L)).thenReturn(customer);
+
+        var result = customerReader.findFullName(1L);
+
+        assertThat(result).isEqualTo("Donald Duck");
+    }
 }
