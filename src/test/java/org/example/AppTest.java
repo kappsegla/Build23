@@ -10,9 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest {
 
     @Test
-    @Tag("integration")
     void integrationTestForApp() {
-
+        assertFalse(true);
     }
 
 }
