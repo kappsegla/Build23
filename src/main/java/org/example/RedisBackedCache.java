@@ -25,7 +25,6 @@ public class RedisBackedCache {
     public static void main(String[] args) {
         var cache = new RedisBackedCache("localhost", 6379);
         cache.put("name","martin");
-
+        System.out.println(cache.get("name"));
     }
-
 }
