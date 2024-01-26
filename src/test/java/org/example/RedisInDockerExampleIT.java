@@ -18,7 +18,7 @@ public class RedisInDockerExampleIT {
 
     @Container
     GenericContainer<?> redis =
-            new GenericContainer<>(DockerImageName.parse("redis:7-alpine"))
+            new GenericContainer<>(DockerImageName.parse("redis:7"))
             .withExposedPorts(6379);
 
     @BeforeEach
@@ -37,9 +37,12 @@ public class RedisInDockerExampleIT {
     @Test
     //@Disabled("Code is not implemented yet")
     public void testSimplePutAndGet() {
+        String retrieved = underTest.get("test");
+        assertThat(retrieved).isNullOrEmpty();
+
         underTest.put("test", "example");
 
-        String retrieved = underTest.get("test");
+        retrieved = underTest.get("test");
         assertThat(retrieved).isEqualTo("example");
     }
 }

@@ -34,7 +34,7 @@ public class AppIT {
 
     @Test
     void invalidOperator() {
-        String data = "%\n1,0\n2,0\n";
+        String data = "%\n1.0\n2.0\n";
 
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
