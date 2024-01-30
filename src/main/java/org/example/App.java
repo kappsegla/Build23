@@ -23,7 +23,7 @@ public class App {
         switch (operator) {
             case '+' -> System.out.printf("%s + %s = %s%n", number1, number2, number1 + number2);
             case '-' -> System.out.printf("%s - %s = %s%n", number1, number2, number1 - number2);
-            case '*' -> System.out.printf("%s * %s = %s%n", number1, number2, number1 * number2);
+            case '*' -> System.out.printf("%s * %s = %s%n", number1, number2, Calculator.mul((int) number1, (int) number2));
             case '/' -> System.out.printf("%s / %s = %s%n", number1, number2, number1 / number2);
             default -> System.out.println("Invalid operator!");
         }

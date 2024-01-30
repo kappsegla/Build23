@@ -34,7 +34,7 @@ public class AppIT {
 
     @Test
     void invalidOperator() {
-        String data = "%\n1,0\n2,0\n";
+        String data = "%\n1.0\n2.0\n";
 
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
@@ -59,6 +59,24 @@ public class AppIT {
         var result = outputStreamCaptor.toString().split(lineSeparator);
 
         assertThat(result).contains("1.0 + 2.0 = 3.0");
+    }
+
+    @Test
+    void multiplicationOperator() {
+        String lineSeparator = System.lineSeparator();
+        String data = """
+                      *
+                      1.0
+                      2.0
+                """;
+
+        System.setIn(new ByteArrayInputStream(data.getBytes()));
+
+        App.main(Arrays.array(""));
+
+        var result = outputStreamCaptor.toString().split(lineSeparator);
+
+        assertThat(result).contains("1.0 * 2.0 = 2");
     }
 
 }
