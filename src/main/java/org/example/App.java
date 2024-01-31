@@ -1,11 +1,16 @@
 package org.example;
 
+import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
+        System.out.println(Locale.getDefault());
+        System.out.println(LocalDateTime.now());
+
         char operator;
         double number1, number2;
 
