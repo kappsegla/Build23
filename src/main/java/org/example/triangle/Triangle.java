@@ -29,13 +29,13 @@ public class Triangle {
         sides[2] = Math.sqrt(Math.pow((double) (s[2].x - s[0].x), 2.0) + Math.pow((double) (s[2].x - s[0].x), 2.0));
     }
 
-    private int uniqueSides() {
+    private int uniqueSideLengths() {
         return (int) Arrays.stream(sides).distinct().count();
     }
 
     //Scalene triangles are triangles where each side is a different length.
     public boolean isScalene() {
-        if (uniqueSides() == 1) {
+        if (uniqueSideLengths() == 3) {
             return true;
         }
         return false;
@@ -49,7 +49,7 @@ public class Triangle {
      * @return true or false
      */
     public boolean isEquilateral() {
-        if (uniqueSides() == 3) {
+        if (uniqueSideLengths() == 1) {
             return true;
         }
         return false;
@@ -57,7 +57,7 @@ public class Triangle {
 
     //An isosceles triangle is a triangle that has two sides of equal length
     public boolean isIsosceles() {
-        if (uniqueSides() == 2) {
+        if (uniqueSideLengths() == 2) {
             return true;
         }
         return false;
