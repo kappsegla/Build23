@@ -15,6 +15,7 @@ class TriangleTest {
         // Act
         boolean result = triangle.isScalene();
 
+        // Assert
         assertTrue(result, "Triangle with all different sides should be scalene");
     }
 
@@ -22,9 +23,7 @@ class TriangleTest {
     void isScalene_TwoSidesEqual_ReturnsFalse() {
         Triangle triangle = new Triangle(3.0, 3.0, 4.0);
 
-        boolean result = triangle.isScalene();
-
-        assertFalse(result, "Triangle with two equal sides should not be scalene");
+        assertFalse(triangle.isScalene(), "Triangle with two equal sides should not be scalene");
     }
 
     @Test

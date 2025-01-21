@@ -35,10 +35,7 @@ public class Triangle {
 
     //Scalene triangles are triangles where each side is a different length.
     public boolean isScalene() {
-        if (uniqueSideLengths() == 3) {
-            return true;
-        }
-        return false;
+        return uniqueSideLengths() == 3;
     }
 
     //Triangle with all sides of equal length
@@ -49,17 +46,11 @@ public class Triangle {
      * @return true or false
      */
     public boolean isEquilateral() {
-        if (uniqueSideLengths() == 1) {
-            return true;
-        }
-        return false;
+        return uniqueSideLengths() == 1;
     }
 
     //An isosceles triangle is a triangle that has two sides of equal length
     public boolean isIsosceles() {
-        if (uniqueSideLengths() == 2) {
-            return true;
-        }
-        return false;
+        return uniqueSideLengths() == 2;
     }
 }
