@@ -2,6 +2,8 @@ package org.example.tdd;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CustomListTest {
 
     //Create new CustomList
@@ -15,6 +17,11 @@ public class CustomListTest {
         CustomList customList = new CustomList();
     }
 
+    @Test
+    void newCustomListIsEmpty() {
+        CustomList customList = new CustomList();
+        assertThat(customList.size()).isEqualTo(0);
+    }
 
 
 }
