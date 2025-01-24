@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomListTest {
+    private CustomList customList = new CustomList();
 
     //Create new CustomList
     //Check size
@@ -19,23 +20,28 @@ public class CustomListTest {
 
     @Test
     void newCustomListIsEmpty() {
-        CustomList customList = new CustomList();
         assertThat(customList.size()).isEqualTo(0);
     }
 
     @Test
     void addStringMakesSizeReturnOne() {
-        CustomList customList = new CustomList();
         customList.add("");
         assertThat(customList.size()).isEqualTo(1);
     }
 
     @Test
     void getReturnsAddedString() {
-        CustomList customList = new CustomList();
         customList.add("Hello");
         assertThat(customList.get()).isEqualTo("Hello");
     }
+
+    @Test
+    void getReturnsAnnotherAddedString() {
+        customList.add("World");
+        assertThat(customList.get()).isEqualTo("World");
+    }
+
+
 
 
 }
