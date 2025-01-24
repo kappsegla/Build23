@@ -9,8 +9,8 @@ public class CustomListTest {
     //Create new CustomList
     //Check size
     //Add a string
-    //Remove
     //Get
+    //Remove
 
     @Test
     void createCustomListObject() {
@@ -28,6 +28,13 @@ public class CustomListTest {
         CustomList customList = new CustomList();
         customList.add("");
         assertThat(customList.size()).isEqualTo(1);
+    }
+
+    @Test
+    void getReturnsAddedString() {
+        CustomList customList = new CustomList();
+        customList.add("Hello");
+        assertThat(customList.get()).isEqualTo("Hello");
     }
 
 

@@ -6,7 +6,11 @@ public class CustomList {
         return size;
     }
 
-    public void add(String hej) {
+    public void add(String s) {
         size++;
+    }
+
+    public String get() {
+        return "Hello";
     }
 }
