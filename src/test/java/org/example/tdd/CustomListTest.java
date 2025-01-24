@@ -32,13 +32,21 @@ public class CustomListTest {
     @Test
     void getReturnsAddedString() {
         customList.add("Hello");
-        assertThat(customList.get()).isEqualTo("Hello");
+        assertThat(customList.get(0)).isEqualTo("Hello");
     }
 
     @Test
     void getReturnsAnnotherAddedString() {
         customList.add("World");
-        assertThat(customList.get()).isEqualTo("World");
+        assertThat(customList.get(0)).isEqualTo("World");
+    }
+
+    @Test
+    void addTwoStringsAndGetTheFirstUsingIndex() {
+        customList.add("Hello");
+        customList.add("World");
+        assertThat(customList.get(0)).isEqualTo("Hello");
+        assertThat(customList.get(1)).isEqualTo("World");
     }
 
 

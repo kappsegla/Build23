@@ -1,19 +1,20 @@
 package org.example.tdd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomList {
-    int size = 0;
-    String value;
+    List<String> value = new ArrayList<String>();
 
     public int size() {
-        return size;
+        return value.size();
     }
 
     public void add(String s) {
-        value = s;
-        size++;
+        value.add(s);
     }
 
-    public String get() {
-        return this.value;
+    public String get(int index) {
+        return this.value.get(index);
     }
 }
