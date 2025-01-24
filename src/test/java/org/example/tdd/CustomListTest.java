@@ -23,5 +23,12 @@ public class CustomListTest {
         assertThat(customList.size()).isEqualTo(0);
     }
 
+    @Test
+    void addStringMakesSizeReturnOne() {
+        CustomList customList = new CustomList();
+        customList.add("");
+        assertThat(customList.size()).isEqualTo(1);
+    }
+
 
 }

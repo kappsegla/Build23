@@ -1,7 +1,12 @@
 package org.example.tdd;
 
 public class CustomList {
+    int size = 0;
     public int size() {
-        return -1;
+        return size;
+    }
+
+    public void add(String hej) {
+        size++;
     }
 }
