@@ -20,6 +20,7 @@ public class Company
 
     public void setName(String newName)
     {
+        this.name = newName;
     }
 
     public void addEmployee(Employee newEmployee)
@@ -44,7 +45,7 @@ public class Company
      */
     public Employee findEmployeeById(String id)
     {
-        int foundIndex = 0;
+        int foundIndex = -1;
         for (int i = 0; i < this.employees.size(); i++)
         {
             if (this.employees.get(i).getId().equals(id))
@@ -53,11 +54,13 @@ public class Company
                 break;
             }
         }
+        if (foundIndex == -1)
+            return null;
         return this.employees.get(foundIndex);
     }
 
     public int numberOfEmployees()
     {
-        return 7;
+        return employees.size();
     }
 }
