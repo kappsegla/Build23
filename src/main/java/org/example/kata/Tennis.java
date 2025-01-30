@@ -20,7 +20,7 @@ public class Tennis {
 
     public String score(int player1Score, int player2Score) {
 
-        if( player1Score > 3 && player1Score - player2Score > 2)
+        if( player1Score > 3 && player1Score - player2Score >= 2)
             return "Player one wins";
         if (player1Score == player2Score) {
             if (player1Score == 1)
