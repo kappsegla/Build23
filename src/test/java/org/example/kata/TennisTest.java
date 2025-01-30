@@ -1,7 +1,5 @@
 package org.example.kata;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -14,6 +12,7 @@ public class TennisTest {
     @ParameterizedTest
     @CsvSource({
             "0, 0, 'Love - All'",
+            "1, 1,'Fifteen - All'",
             "1, 0, 'Fifteen - Love'"
     })
     void tennisScore(int playerOneScore, int playerTwoScore, String expectedMessage) {
