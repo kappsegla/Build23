@@ -7,7 +7,7 @@ public class Tennis {
                 return "Fifteen - All";
             if( player1Score == 2)
                 return "Thirty - All";
-            if( player1Score == 3)
+            if( player1Score > 2)
                 return "deuce";
         }
         if( player1Score == 1)
