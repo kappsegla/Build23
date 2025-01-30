@@ -5,6 +5,8 @@ public class Tennis {
         if( player1Score == player2Score ){
             if( player1Score == 1)
                 return "Fifteen - All";
+            if( player1Score == 2)
+                return "Thirty - All";
         }
         if( player1Score == 1)
             return "Fifteen - Love";

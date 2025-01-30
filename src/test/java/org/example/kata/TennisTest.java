@@ -12,7 +12,8 @@ public class TennisTest {
     @ParameterizedTest
     @CsvSource({
             "0, 0, 'Love - All'",
-            "1, 1,'Fifteen - All'",
+            "1, 1, 'Fifteen - All'",
+            "2, 2, 'Thirty - All'",
             "1, 0, 'Fifteen - Love'"
     })
     void tennisScore(int playerOneScore, int playerTwoScore, String expectedMessage) {
