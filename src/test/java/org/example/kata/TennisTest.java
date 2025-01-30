@@ -21,7 +21,8 @@ public class TennisTest {
             "3, 0, 'Forty - Love'",
             "4, 0, 'Player one wins'",
             "4, 1, 'Player one wins'",
-            "4, 2, 'Player one wins'"
+            "4, 2, 'Player one wins'",
+            "4, 3, 'Advantage player one'"
     })
     void tennisScore(int playerOneScore, int playerTwoScore, String expectedMessage) {
         assertThat(tennis.score(playerOneScore, playerTwoScore)).isEqualTo(expectedMessage);
